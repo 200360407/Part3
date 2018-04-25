@@ -6,7 +6,7 @@ using Assignment.Models;
 
 namespace Assignment2.Models
 {
-    public class EFChildrenRepository : MocKChildrenRepository
+    public class EFChildrenRepository : MocKchildrenRepository
     {
         // database connection moved here from  children controller
         private CompanyModel db = new CompanyModel();
