@@ -30,14 +30,14 @@ namespace Assignment2.Tests.Controllers
             mock = new Mock<MocKchildrenRepository>();
 
             // initialize the mock children data
-            children = new List<child>
+            childrens = new List<child>
             {
                 new child {color2="color1", location="location1", Description="Description1"},
                 new child {color2="color2", location="location2", Description="Description2"},
             };
 
             // bind the data to the mock
-            mock.Setup(m => m.children).Returns(children.AsQueryable());
+          //  mock.Setup(m => m.children)?.Returns(children.AsQueryable());
 
             //initialize the controller and inject the dependency
             children = new childrenController(mock.Object);
@@ -69,7 +69,7 @@ namespace Assignment2.Tests.Controllers
         {
 
             // act
-            var actual = (child)((ViewResult)children.Details(1)).Model;
+            var actual = (child)((ViewResult)children.Details("1")).Model;
 
             // assert
             Assert.AreEqual(childrens[0], actual);
@@ -80,7 +80,7 @@ namespace Assignment2.Tests.Controllers
         {
 
             // act
-            var actual = (ViewResult)children.Details(4);
+            var actual = (ViewResult)children.Details("4");
 
             // assert
             Assert.AreEqual("Error", actual.ViewName);
@@ -101,9 +101,11 @@ namespace Assignment2.Tests.Controllers
         [TestMethod]
         public void EditGetValidId() {
             // act
-            var actual = ((ViewResult)children.Edit(1)).Model;
+            var actual = ((ViewResult)children.Edit("location1")).Model;
             // assert
             Assert.AreEqual(childrens[0], actual);
+
+            
 
         }
         
@@ -111,7 +113,7 @@ namespace Assignment2.Tests.Controllers
         public void EditGetInValidId()
         {
             // act
-            var actual = (ViewResult)children.Edit(4); ;
+            var actual = (ViewResult)children.Edit("4"); ;
             // assert
             Assert.AreEqual("Error", actual.ViewName);
 
@@ -119,9 +121,9 @@ namespace Assignment2.Tests.Controllers
         [TestMethod]
         public void EditNoLocation()
         {
-            int? ID = null;
-            // act
-            var actual = (ViewResult)children.Edit(null);
+            //int? ID = null;
+            string l = "";
+            var actual = (ViewResult)children.Edit(l);
 
             // assert
             Assert.AreEqual("Error", actual.ViewName);

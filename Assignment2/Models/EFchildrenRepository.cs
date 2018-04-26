@@ -14,12 +14,14 @@ namespace Assignment2.Models
 
         public void Delete(child child)
         {
-            throw new NotImplementedException();
+            db.children.Remove(child);
+            db.SaveChanges();
         }
 
         public child Save(child child)
         {
-            throw new NotImplementedException();
+            //db.Entry()
+            return child;
         }
 
        // public child

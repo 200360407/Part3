@@ -38,13 +38,14 @@ namespace Assignment.Controllers
 
         private ActionResult View(object p)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return View();
         }
 
-        public static implicit operator childrenController(List<child> v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static implicit operator childrenController(List<child> v)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public IQueryable<child> AsQueryable()
         {
@@ -96,15 +97,15 @@ namespace Assignment.Controllers
         //}
 
         // GET: children/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(string destinationLocation)
         {
-            if (id == null)
+            if (destinationLocation == null)
             {
                 return View("Error");
             }
             // child child = db.children.Find(id);
             // new code unit testing
-            string destinationLocation = "";    
+            //string destinationLocation = "";    
             child child = db.children.SingleOrDefault(c => c.location == destinationLocation);
 
             if (child == null)
