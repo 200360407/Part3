@@ -1,0 +1,6 @@
+Unit testing
+The purpose of this part3 is to unit testing of controller so that I can prevent manual testing of every method.
+To do all that things i install Moq in my project and create a test class
+1.I made childrenControllerTest.
+2. Modify childrenController.cs
+3. Created 2 repository for controller named as "MockchildrenRepository" and "EFchildrenRepository".
